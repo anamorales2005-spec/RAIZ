@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raíz — Consultoría en bienestar laboral y employer branding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2EFE4;
+    --card: #FBFAF4;
+    --ink: #1C2A20;
+    --ink-soft: #445346;
+    --forest: #1F3D2B;
+    --forest-dark: #142A1D;
+    --moss: #5C7A5E;
+    --clay: #C1743A;
+    --clay-dark: #9E5C2A;
+    --line: rgba(28,42,32,0.14);
+    --maxw: 1100px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+    margin:0;
+    color:var(--forest-dark);
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  img,svg{display:block; max-width:100%;}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,239,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px; max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:baseline; gap:8px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.5rem;
+    color:var(--forest-dark); text-decoration:none; letter-spacing:-0.01em;
+  }
+  .brand .dot{color:var(--clay);}
+  nav.links{display:flex; gap:32px; font-size:0.95rem; font-weight:500;}
+  nav.links a{text-decoration:none; color:var(--ink-soft); transition:color .2s;}
+  nav.links a:hover{color:var(--forest-dark);}
+  .nav-cta{
+    background:var(--forest); color:#fff; padding:10px 20px; border-radius:3px;
+    text-decoration:none; font-size:0.9rem; font-weight:600;
+    box-shadow:none; transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--forest-dark);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    padding:88px 0 64px;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .kicker{
+    font-size:0.95rem; color:var(--clay-dark); font-weight:600;
+    margin-bottom:18px; max-width:36ch;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+    max-width:15ch;
+  }
+  .hero p.lede{
+    margin-top:22px; font-size:1.14rem; color:var(--ink-soft); max-width:46ch;
+  }
+  .hero-ctas{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--clay); color:#fff; padding:14px 26px; border-radius:3px;
+    text-decoration:none; font-weight:600; font-size:0.98rem;
+    transition:background .2s, transform .2s;
+  }
+  .btn-primary:hover{background:var(--clay-dark);}
+  .btn-secondary{
+    padding:14px 22px; border:1px solid var(--ink); border-radius:3px;
+    text-decoration:none; font-weight:600; font-size:0.98rem; color:var(--ink);
+    transition:background .2s;
+  }
+  .btn-secondary:hover{background:rgba(28,42,32,0.06);}
+
+  .roots-art{width:100%; height:auto;}
+
+  /* ---------- stat strip ---------- */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:34px 0;
+  }
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:32px;
+  }
+  .stat b{
+    display:block; font-family:'Fraunces', serif; font-size:2.1rem; color:var(--forest-dark);
+    font-weight:600;
+  }
+  .stat span{font-size:0.92rem; color:var(--ink-soft);}
+
+  /* ---------- section shell ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:52ch; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.4rem);}
+  .section-head p{margin-top:16px; color:var(--ink-soft); font-size:1.05rem;}
+
+  /* ---------- servicios ---------- */
+  .services{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .service{
+    background:var(--card); padding:36px 30px;
+  }
+  .service .num{
+    font-family:'Fraunces', serif; font-size:0.95rem; color:var(--clay-dark); font-weight:600;
+  }
+  .service h3{font-size:1.28rem; margin-top:14px;}
+  .service p{margin-top:12px; color:var(--ink-soft); font-size:0.98rem;}
+
+  /* ---------- proceso ---------- */
+  .proceso-wrap{background:var(--forest); color:#EDEADE; border-radius:4px; padding:56px 48px;}
+  .proceso-wrap .section-head h2, .proceso-wrap .section-head p{color:#F2EFE4;}
+  .proceso-wrap .section-head p{color:#C9D3C7;}
+  .timeline{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:0;
+    position:relative;
+  }
+  .step{position:relative; padding-right:18px;}
+  .step .stepline{
+    height:2px; background:#3E5B41; margin-bottom:22px; position:relative;
+  }
+  .step .stepline::before{
+    content:''; position:absolute; left:0; top:50%; transform:translateY(-50%);
+    width:9px; height:9px; border-radius:50%; background:var(--clay);
+  }
+  .step h4{
+    font-family:'Fraunces', serif; font-weight:500; font-size:1.02rem; color:#fff; margin:0 0 8px;
+  }
+  .step p{font-size:0.88rem; color:#C9D3C7; margin:0;}
+
+  /* ---------- para quien ---------- */
+  .quien{
+    display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;
+  }
+  .quien-list{list-style:none; margin:0; padding:0;}
+  .quien-list li{
+    display:flex; gap:14px; padding:16px 0; border-top:1px solid var(--line);
+    font-size:1rem; color:var(--ink-soft);
+  }
+  .quien-list li:last-child{border-bottom:1px solid var(--line);}
+  .quien-list li .mark{color:var(--clay); font-family:'Fraunces', serif; font-weight:600;}
+  blockquote{
+    font-family:'Fraunces', serif; font-style:italic; font-size:1.4rem;
+    color:var(--forest-dark); line-height:1.4; margin:0; padding-left:22px;
+    border-left:3px solid var(--clay);
+  }
+  blockquote footer{
+    margin-top:18px; font-family:'Inter', sans-serif; font-style:normal;
+    font-size:0.9rem; color:var(--ink-soft);
+  }
+
+  /* ---------- cta final ---------- */
+  .cta-final{
+    text-align:left; padding:80px 0 100px;
+  }
+  .cta-box{
+    background:var(--card); border:1px solid var(--line); border-radius:4px;
+    padding:56px; display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center;
+  }
+  .cta-box h2{font-size:clamp(1.7rem, 3vw, 2.2rem); max-width:16ch;}
+  .cta-box p{color:var(--ink-soft); margin-top:14px; max-width:42ch;}
+  form.mini{display:flex; flex-direction:column; gap:12px;}
+  form.mini input{
+    padding:13px 14px; border:1px solid var(--line); border-radius:3px; font-family:'Inter', sans-serif; font-size:0.95rem;
+    background:#fff;
+  }
+  form.mini button{
+    background:var(--forest); color:#fff; border:none; padding:14px; border-radius:3px;
+    font-weight:600; font-size:0.95rem; cursor:pointer; transition:background .2s;
+  }
+  form.mini button:hover{background:var(--forest-dark);}
+  form.mini .fineprint{font-size:0.78rem; color:var(--ink-soft); margin-top:2px;}
+
+  footer{
+    border-top:1px solid var(--line); padding:40px 0; font-size:0.88rem; color:var(--ink-soft);
+  }
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero{padding:52px 0 40px;}
+    .stats-grid{grid-template-columns:1fr; gap:20px;}
+    .services{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:1fr; gap:24px;}
+    .step{padding-right:0;}
+    .quien{grid-template-columns:1fr; gap:36px;}
+    .cta-box{grid-template-columns:1fr; padding:36px 26px;}
+    nav.links{display:none;}
+    .proceso-wrap{padding:40px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">Raíz<span class="dot">·</span><span style="font-family:'Inter', sans-serif; font-weight:500; font-size:0.95rem; color:var(--ink-soft);">consultoría</span></a>
+    <nav class="links">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#quien">Para quién es</a>
+    </nav>
+    <a href="#agenda" class="nav-cta">Diagnóstico gratuito</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="kicker">Consultoría B2B para PyMEs · CDMX</p>
+        <h1>Atendemos la raíz del problema, no solo el trámite de la NOM&#8209;035.</h1>
+        <p class="lede">Diagnosticamos el clima laboral, diseñamos tu estrategia de employer branding y te acompañamos a cumplir la norma — para que dejes de perder talento por agotamiento y falta de reconocimiento.</p>
+        <div class="hero-ctas">
+          <a href="#agenda" class="btn-primary">Agenda tu diagnóstico gratuito</a>
+          <a href="#proceso" class="btn-secondary">Ver cómo trabajamos</a>
+        </div>
+      </div>
+      <div>
+        <svg class="roots-art" viewBox="0 0 420 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama de una planta: ramas con brotes arriba, raíces abajo">
+          <!-- horizonte -->
+          <line x1="30" y1="230" x2="390" y2="230" stroke="#C7BFA8" stroke-width="1.5"/>
+          <!-- tallo -->
+          <line x1="210" y1="230" x2="210" y2="120" stroke="#1F3D2B" stroke-width="5" stroke-linecap="round"/>
+          <!-- ramas -->
+          <path d="M210 168 C 178 150, 158 132, 140 96" stroke="#1F3D2B" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M140 96 C 128 84, 122 70, 122 54" stroke="#1F3D2B" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M210 150 C 236 128, 250 108, 254 66" stroke="#1F3D2B" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M254 66 C 258 50, 268 38, 282 30" stroke="#1F3D2B" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M210 120 C 210 92, 216 66, 206 34" stroke="#1F3D2B" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- brotes -->
+          <circle cx="122" cy="54" r="6" fill="#C1743A"/>
+          <circle cx="282" cy="30" r="6" fill="#C1743A"/>
+          <circle cx="206" cy="34" r="6" fill="#C1743A"/>
+          <circle cx="140" cy="96" r="4" fill="#5C7A5E"/>
+          <circle cx="254" cy="66" r="4" fill="#5C7A5E"/>
+          <!-- raices -->
+          <path d="M210 230 C 180 248, 158 256, 118 260" stroke="#8B6A45" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M118 260 C 96 268, 82 282, 66 306" stroke="#8B6A45" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M118 260 C 106 276, 100 292, 96 312" stroke="#8B6A45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M210 230 C 240 248, 262 256, 302 260" stroke="#8B6A45" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M302 260 C 324 268, 338 282, 354 306" stroke="#8B6A45" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <path d="M302 260 C 314 276, 320 292, 324 312" stroke="#8B6A45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M210 230 C 206 254, 210 278, 200 306" stroke="#8B6A45" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M200 306 C 194 322, 184 334, 172 348" stroke="#8B6A45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M200 306 C 206 322, 214 334, 224 348" stroke="#8B6A45" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <text x="210" y="418" text-anchor="middle" font-family="Fraunces, serif" font-size="15" fill="#8B6A45" font-style="italic">cultura y cumplimiento, desde la raíz</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap stats-grid">
+      <div class="stat"><b>99.8%</b><span>de las empresas en México son PyMEs — el segmento con menos herramientas para retener talento.</span></div>
+      <div class="stat"><b>6–8</b><span>colaboradores pierde en promedio al año una PyME por temas de agotamiento laboral.</span></div>
+      <div class="stat"><b>$586,550</b><span>MXN es la multa máxima por incumplir la NOM-035, por cada trabajador afectado.</span></div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Un servicio, tres capas de trabajo</h2>
+        <p>No vendemos un reporte más. Diagnosticamos, diseñamos e implementamos junto con tu equipo de RH.</p>
+      </div>
+      <div class="services">
+        <div class="service">
+          <span class="num">01</span>
+          <h3>Diagnóstico NOM-035</h3>
+          <p>Aplicamos los cuestionarios oficiales de la STPS y medimos el clima laboral real de tu equipo, sin tecnicismos ni relleno.</p>
+        </div>
+        <div class="service">
+          <span class="num">02</span>
+          <h3>Employer branding</h3>
+          <p>Convertimos ese diagnóstico en una historia de marca que atrae talento, no solo en un archivo que cumple con la ley.</p>
+        </div>
+        <div class="service">
+          <span class="num">03</span>
+          <h3>Acompañamiento continuo</h3>
+          <p>Talleres, seguimiento trimestral y evidencia documental lista para cualquier inspección de la STPS.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso">
+    <div class="wrap">
+      <div class="proceso-wrap">
+        <div class="section-head">
+          <h2>De la primera llamada al acompañamiento trimestral</h2>
+          <p>Así se ve trabajar con Raíz, en cinco pasos.</p>
+        </div>
+        <div class="timeline">
+          <div class="step"><div class="stepline"></div><h4>Conciencia</h4><p>Webinar gratuito sobre riesgos psicosociales y NOM-035.</p></div>
+          <div class="step"><div class="stepline"></div><h4>Diagnóstico</h4><p>Cuestionario y encuesta de clima, sin costo.</p></div>
+          <div class="step"><div class="stepline"></div><h4>Propuesta</h4><p>Resultados claros y plan a la medida de tu PyME.</p></div>
+          <div class="step"><div class="stepline"></div><h4>Implementación</h4><p>Talleres y estrategia de marca empleadora.</p></div>
+          <div class="step"><div class="stepline"></div><h4>Seguimiento</h4><p>Revisión trimestral y evidencia para la STPS.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quien">
+    <div class="wrap quien">
+      <div>
+        <div class="section-head" style="margin-bottom:28px;">
+          <h2>¿Es Raíz para tu empresa?</h2>
+        </div>
+        <ul class="quien-list">
+          <li><span class="mark">Sí</span> Tienes entre 10 y 150 colaboradores y no cuentas con un área de RH estructurada.</li>
+          <li><span class="mark">Sí</span> Ya sabes que debes cumplir la NOM-035, pero no sabes por dónde empezar.</li>
+          <li><span class="mark">Sí</span> Pierdes candidatos buenos porque tu empresa no comunica bien su cultura.</li>
+          <li><span class="mark">Aún no</span> Buscas solo cumplir el papeleo sin cambiar nada más.</li>
+        </ul>
+      </div>
+      <blockquote>
+        La mayoría de las consultoras entregan un reporte y se van. Nosotros nos quedamos hasta que el cambio se nota en tu rotación.
+        <footer>— Equipo Raíz</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="cta-final" id="agenda">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Agenda tu diagnóstico gratuito</h2>
+          <p>Cuéntanos un poco de tu empresa y te contactamos en menos de 48 horas para agendar la primera sesión, sin costo.</p>
+        </div>
+        <form class="mini" onsubmit="event.preventDefault(); this.querySelector('button').textContent='¡Listo, te contactamos pronto!';">
+          <input type="text" placeholder="Nombre de tu empresa" required>
+          <input type="email" placeholder="Correo de contacto" required>
+          <input type="text" placeholder="Número de colaboradores" required>
+          <button type="submit">Solicitar diagnóstico</button>
+          <p class="fineprint">Prototipo de práctica escolar — este formulario no envía datos reales.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>Raíz — Consultoría en bienestar laboral y employer branding para PyMEs.</span>
+    <span>Proyecto escolar · Equipo 4</span>
+  </div>
+</footer>
+
+</body>
+</html>
